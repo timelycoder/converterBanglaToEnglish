@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bangla to English Number Converter</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f3f3f3;
+      }
+      textarea {
+        width: 100%;
+        height: 200px;
+        font-size: 18px;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .box {
+        background: white;
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Bangla → English Number Converter</h2>
+    <p>Paste your Bangla text here:</p>
+    <textarea id="input" placeholder="Paste Bangla text..."></textarea>
+
+    <div class="box">
+      <h3>Converted Output:</h3>
+      <textarea id="output" readonly></textarea>
+    </div>
+
+    <script>
+      const map = {
+        "০": "0",
+        "১": "1",
+        "২": "2",
+        "৩": "3",
+        "৪": "4",
+        "৫": "5",
+        "৬": "6",
+        "৭": "7",
+        "৮": "8",
+        "৯": "9",
+      };
+
+      function convert(text) {
+        return text.replace(/[০-৯]/g, (s) => map[s]);
+      }
+
+      document.getElementById("input").addEventListener("input", function () {
+        document.getElementById("output").value = convert(this.value);
+      });
+    </script>
+  </body>
+</html>
